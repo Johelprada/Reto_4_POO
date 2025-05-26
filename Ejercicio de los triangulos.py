@@ -54,7 +54,7 @@ class Shape:
         self._is_regular = False
 
     def _compute_edges(self):
-        print("\nCalculando las líneas que forman la figura...")
+        print("\nlíneas que forman la figura...")
         edges = []
         for i in range(len(self._vertices)):
             start = self._vertices[i]
@@ -65,7 +65,6 @@ class Shape:
         return edges
 
     def compute_perimeter(self):
-        print("\nCalculando perímetro...")
         perimeter = sum(edge.get_length() for edge in self._edges)
         print(f"  Perímetro total: {perimeter:.2f}")
         return perimeter
@@ -93,7 +92,6 @@ class Rectangle(Shape):
         self._is_regular = False
 
     def compute_area(self):
-        print("\nCalculando área del rectángulo...")
         l1 = self._edges[0].get_length()
         l2 = self._edges[1].get_length()
         area = l1 * l2
@@ -114,7 +112,6 @@ class Triangle(Shape):
         super().__init__(vertices)
 
     def compute_area(self):
-        print("\nCalculando área del triángulo con fórmula de Herón...")
         a, b, c = [edge.get_length() for edge in self._edges]
         s = (a + b + c) / 2
         area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
@@ -180,8 +177,7 @@ if __name__ == "__main__":
         print("Opción no válida")
         exit()
 
-    # Mostrar resultados
-    print("\n\n---- RESULTADOS ----")
+
     figura.compute_perimeter()
     figura.compute_area()
     print(f"¿Es regular? {'Sí' if figura.get_is_regular() else 'No'}")
